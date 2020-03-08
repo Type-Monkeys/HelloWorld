@@ -9,3 +9,4 @@ We are implemening this on our twitch stream, and will have a vod cast to accomp
 1. Keypromoter X - https://plugins.jetbrains.com/plugin/9792-key-promoter-x
 1. Rainbow Brackets - https://plugins.jetbrains.com/plugin/10080-rainbow-brackets
 1. AdoptOpenJdk - https://adoptopenjdk.net/
+1. Docker Desktop - https://hub.docker.com/editions/community/docker-ce-desktop-windows
