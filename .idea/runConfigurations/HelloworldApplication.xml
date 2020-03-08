@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="HelloworldApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <module name="helloworld.main" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="com.typemonkeys.helloworld.HelloworldApplication" />
+    <option name="ALTERNATIVE_JRE_PATH" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
