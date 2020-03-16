@@ -1,30 +1,39 @@
 package com.typemonkeys.helloworld;
 
-import java.util.ArrayList;
+import com.typemonkeys.helloworld.repositories.GreetingRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import java.util.List;
 
-import static java.util.Arrays.asList;
-
+@RestController
+@RequestMapping("/v1/greetings")
 public class GreetingController {
-    public String get() {
-        String result = "Hello World";
-        return result;
+
+    private GreetingRepository greetingRepository;
+
+    @Autowired
+    public GreetingController(GreetingRepository greetingRepository) {
+        this.greetingRepository = greetingRepository;
     }
 
-    public String get(String personName) {
-        if (personName.isEmpty()) {
-            return get();
-        } else {
-            return "Hello " + personName;
-        }
+    @GetMapping
+    public List<Greeting> get() {
+        List<Greeting> greetingList = greetingRepository.findAll();
+        return greetingList;
     }
 
-    public String get(int repetition) {
-        String result = "";
+    public void post(Greeting helloGreetings) {
+        greetingRepository.save(helloGreetings);
+    }
 
-        for(int i = 0; i < repetition; i++){
-            result = result + "Hello,";
-        }
-        return result.substring(0, result.length() - 1) ;
+    public Greeting get(String id) {
+        List<Greeting> repoGreeting = greetingRepository.findAll();
+        return repoGreeting.stream()
+                .filter(greeting -> greeting.getId().equals(id))
+                .findFirst()
+                .orElse(null);
     }
 }
